@@ -7,10 +7,10 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
-  res.send("Hello World 123!");
+  res.send("Travel Buddy! Hello mayank");
 });
 
-app.use("/api/auth",);
+// app.use("/api/auth",);
 app.listen(PORT, () => {
   console.log(`Sever is running on port ${PORT}`);
   connectDb();
