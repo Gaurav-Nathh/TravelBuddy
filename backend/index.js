@@ -2,6 +2,7 @@ import { configDotenv } from "dotenv";
 import express from "express";
 import { connectDb } from "./db/connectDB.js";
 import authroute from "./routes/authroute.js"
+import postsroute from "./routes/postsroute.js"
 
 configDotenv();
 const app = express();
@@ -15,7 +16,9 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authroute);
 
+app.use("/api/posts", postsroute);
+
 app.listen(PORT, () => {
   console.log(`Sever is running on port ${PORT}`);
-  connectDb();
+  // connectDb();
 });
