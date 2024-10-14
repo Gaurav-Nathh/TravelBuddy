@@ -1,6 +1,7 @@
 import { User } from "../models/userModel.js";
 import bcrypt from "bcryptjs"
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
+// import express from "express";
 
 export const signup = async (req, res) => {
   const { email, password, name } = req.body;
@@ -38,3 +39,7 @@ export const signup = async (req, res) => {
     res.status(400).json({success: false, message: error.message});
   }
 };
+
+// export const login = async (res, req) => {
+//   res.send("This is login Page!");
+// }

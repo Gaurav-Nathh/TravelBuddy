@@ -5,7 +5,9 @@ const router = express.Router();
 
 router.post("/signup", signup);
 
-// router.get("/login", login);
+router.get("/login", (req, res) => {
+  res.send("This is login page");
+});
 
 // router.get("/logout", logout);
 
