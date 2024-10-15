@@ -1,7 +1,7 @@
 import { User } from "../models/userModel.js";
 import bcrypt from "bcryptjs"
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
-import { sendMail } from "../nodeMailer.js/verifiyToken.js";
+import { sendMail } from "../nodeMailer/verifiyToken.js";
 import { VERIFICATION_EMAIL_TEMPLATE } from "../template/emailTemplate.js";
 // import express from "express";
 
