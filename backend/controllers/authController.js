@@ -1,6 +1,8 @@
 import { User } from "../models/userModel.js";
 import bcrypt from "bcryptjs"
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
+import { sendMail } from "../nodeMailer.js/verifiyToken.js";
+import { VERIFICATION_EMAIL_TEMPLATE } from "../template/emailTemplate.js";
 // import express from "express";
 
 export const signup = async (req, res) => {
@@ -25,15 +27,20 @@ export const signup = async (req, res) => {
     await user.save();
 
     generateTokenAndSetCookie( res, user._id);
-
+    // console.log(VERIFICATION_EMAIL_TEMPLATE)
+    sendMail(email, "Welcome to Out Project","", VERIFICATION_EMAIL_TEMPLATE.replace("{verificationCode}", verificationToken));
     res.status(201).json({
       success: true,
-      message: "User created successfully",
-      user: {
-        ...user._doc,
-        password: undefined
-      }
+      message: `Verfication code is send to ${email}`
     })
+    // res.status(201).json({
+    //   success: true,
+    //   message: "User created successfully",
+    //   user: {
+    //     ...user._doc,
+    //     password: undefined
+    //   }
+    // })
 
   } catch (error) {
     res.status(400).json({success: false, message: error.message});

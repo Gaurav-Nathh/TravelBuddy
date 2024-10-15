@@ -20,5 +20,5 @@ app.use("/api/posts", postsroute);
 
 app.listen(PORT, () => {
   console.log(`Sever is running on port ${PORT}`);
-  // connectDb();
+  connectDb();
 });
