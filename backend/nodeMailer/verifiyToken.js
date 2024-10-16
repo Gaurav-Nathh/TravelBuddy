@@ -3,14 +3,18 @@ import nodemailer from "nodemailer"
 import { configDotenv } from "dotenv";
 
 configDotenv();
+const admin_user = process.env.EMAIL_USER;
+const admin_pass = process.env.EMAIL_PASS;
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   secure: true, // true for port 465, false for other ports
   auth: {
     // user: `${process.env.EMAIL_USER}`,
     // pass: `${process.env.EMAIL_PASS}`
-    user: "welcome.travelbuddy@gmail.com", 
-    pass: "gydipektspgzydmd"
+    // user: "welcome.travelbuddy@gmail.com", 
+    // pass: "gydipektspgzydmd"
+    user: admin_user, 
+    pass: admin_pass
   },
 });
 // async..await is not allowed in global scope, must use a wrapper
