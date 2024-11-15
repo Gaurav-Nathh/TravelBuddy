@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: inter;
+}
+.bord {
+  @apply border-2 border-solid border-red-500
+}

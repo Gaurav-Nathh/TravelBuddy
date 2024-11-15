@@ -14,20 +14,31 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const  sendMail = ( to, subject, text, html) =>  {
-let mailOptions = {
-  from: admin_user,
-  to,
-  subject,
-  text,
-  html 
-};
+export const  send_Mail = ( to, subject, text, html) =>  {
+  let mailOptions = {
+    from: admin_user,
+    to,
+    subject,
+    text,
+    html 
+  };
 
-transporter.sendMail(mailOptions, (error, res) => {
-  if (error) {
-    res.status(500).json({message: "Server Error!"});
-  }else {
-    res.status(200).json({message: "Email send Successfully!"});
-  }
-})
-}
+  transporter.sendMail(mailOptions);
+};
+// export const  sendMail = ( to, subject, text, html) =>  {
+// let mailOptions = {
+//   from: admin_user,
+//   to,
+//   subject,
+//   text,
+//   html 
+// };
+
+// transporter.sendMail(mailOptions, (error, res) => {
+//   if (error) {
+//     res.status(400).json({message: "Server Error!"});
+//   }else {
+//     res.status(200).json({message: "Email send Successfully!"});
+//   }
+// })
+// }
